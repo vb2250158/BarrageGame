@@ -4,10 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/levels/menu.unity
-    guid: 26984cc66e7f7da46a0b0846dda6cb3c
-  - enabled: 1
-    path: Assets/levels/Growing.unity
-    guid: 46f4402c78a7feb4c8e389df8a72ce12
+  m_Scenes: []
+  m_configObjects: {}

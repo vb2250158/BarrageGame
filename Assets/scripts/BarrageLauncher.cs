@@ -52,7 +52,6 @@ public class DanmuShoot
     /// 超级弹幕
     /// </summary>
     public DanmuShoot[] EXDanmu;
-
 }
 [System.Serializable]
 public class DanmuPreform
@@ -149,7 +148,7 @@ public class Aimshoot
 
 public enum AimshootType
 {
-    Player,Slif
+    Player, Slif
 }
 
 public class BarrageLauncher : MonoBehaviour
@@ -245,22 +244,22 @@ public class BarrageLauncher : MonoBehaviour
         for (int i = 0; i < _danmuShoot.launchNumber.number; i++)
         {
             GameObject danmuObject;
+            GameObject[] danmuObjects = _danmuShoot.danmuPreform.danmuObjects;
             //是否随机构成
             if (_danmuShoot.danmuPreform.isRandom)
             {
-                int n = Random.Range(0, _danmuShoot.danmuPreform.danmuObjects.Length);
-                danmuObject = Instantiate(_danmuShoot.danmuPreform.danmuObjects[n], transform);
-
+                int n = Random.Range(0, danmuObjects.Length);
+                danmuObject = Instantiate(danmuObjects[n], transform);
             }
             else
             {
-                danmuObject = Instantiate(_danmuShoot.danmuPreform.danmuObjects[i], transform);
+                danmuObject = Instantiate(danmuObjects[i % danmuObjects.Length], transform);
             }
 
             if (_danmuShoot.launchNumber.timedelta)
             {
                 danmuObject.GetComponent<Boom>()
-                  .init(Vector2Rote(_danmuShoot.danmuGo, _danmuShoot.launchNumber.deviation * (i + 1)*timed))
+                  .init(Vector2Rote(_danmuShoot.danmuGo, _danmuShoot.launchNumber.deviation * (i + 1) * timed))
                   .setLiveTime(_danmuShoot.liveTime)
                   .setDeltaSpeed(_danmuShoot.deltaSpeeds)
                   .setAimshoot(_danmuShoot.aimshoot)
@@ -278,7 +277,7 @@ public class BarrageLauncher : MonoBehaviour
                  .GetComponent<Transform>().localPosition = getOffset(_danmuShoot.randmOffset.startPosition);
             }
 
-           
+
 
         }
 
