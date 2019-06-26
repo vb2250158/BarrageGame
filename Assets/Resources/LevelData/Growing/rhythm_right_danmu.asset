@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22acd422b70cab547aa18edf5e9fedca, type: 3}
+  m_Name: rhythm_right_danmu
+  m_EditorClassIdentifier: 
+  danmuShoots:
+  - startTime: 27.2
+    shootTime: 0.4
+    liveTime: 9
+    danmuGo: {x: 0, y: -10}
+    danmuFrequency: 0.2
+    launchNumber:
+      number: 16
+      deviation: 25
+      timedelta: 0
+    danmuPreform:
+      danmuObjects:
+      - {fileID: 1459739634702834, guid: 7003aad54e8756b4c984bfadb87c7d2b, type: 3}
+      - {fileID: 1459739634702834, guid: b926539b338cf2f479abae2551d510b7, type: 3}
+      - {fileID: 1459739634702834, guid: 8e4a63a4634a7304683c094fd5235d8e, type: 3}
+      isRandom: 1
+    deltaSpeeds: []
+    aimshoot: []
+    randmOffset:
+      startPosition: {x: 5, y: 0}
+    EXDanmu: []
+  - startTime: 40.6
+    shootTime: 0.8
+    liveTime: 9
+    danmuGo: {x: 0, y: -10}
+    danmuFrequency: 0.2
+    launchNumber:
+      number: 8
+      deviation: 25
+      timedelta: 0
+    danmuPreform:
+      danmuObjects:
+      - {fileID: 1459739634702834, guid: 7003aad54e8756b4c984bfadb87c7d2b, type: 3}
+      - {fileID: 1459739634702834, guid: b926539b338cf2f479abae2551d510b7, type: 3}
+      - {fileID: 1459739634702834, guid: 8e4a63a4634a7304683c094fd5235d8e, type: 3}
+      isRandom: 1
+    deltaSpeeds: []
+    aimshoot: []
+    randmOffset:
+      startPosition: {x: 5, y: 0}
+    EXDanmu: []
+  - startTime: 40.6
+    shootTime: 0.4
+    liveTime: 9
+    danmuGo: {x: 0, y: -10}
+    danmuFrequency: 0.2
+    launchNumber:
+      number: 24
+      deviation: 25
+      timedelta: 0
+    danmuPreform:
+      danmuObjects:
+      - {fileID: 1459739634702834, guid: 7003aad54e8756b4c984bfadb87c7d2b, type: 3}
+      - {fileID: 1459739634702834, guid: b926539b338cf2f479abae2551d510b7, type: 3}
+      - {fileID: 1459739634702834, guid: 8e4a63a4634a7304683c094fd5235d8e, type: 3}
+      isRandom: 1
+    deltaSpeeds: []
+    aimshoot: []
+    randmOffset:
+      startPosition: {x: 5, y: 0}
+    EXDanmu: []

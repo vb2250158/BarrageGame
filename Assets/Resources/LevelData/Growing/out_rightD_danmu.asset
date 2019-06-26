@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22acd422b70cab547aa18edf5e9fedca, type: 3}
+  m_Name: out_rightD_danmu
+  m_EditorClassIdentifier: 
+  danmuShoots:
+  - startTime: 87.5
+    shootTime: 8
+    liveTime: 20
+    danmuGo: {x: -5, y: 17}
+    danmuFrequency: 1
+    launchNumber:
+      number: 1
+      deviation: 0
+      timedelta: 0
+    danmuPreform:
+      danmuObjects:
+      - {fileID: 1650622349283922, guid: 3a4b99a665da99a4083efb4bb61c39b1, type: 3}
+      isRandom: 1
+    deltaSpeeds:
+    - startDeltaTime: 0
+      speed: {x: 0, y: 0}
+      addSpeed: {x: 0, y: -0.1}
+    aimshoot: []
+    randmOffset:
+      startPosition: {x: 0, y: 0}
+    EXDanmu:
+    - startTime: 0
+      shootTime: 4
+      liveTime: 9
+      danmuGo: {x: 0, y: 5}
+      danmuFrequency: 1
+      launchNumber:
+        number: 10
+        deviation: 36
+        timedelta: 0
+      danmuPreform:
+        danmuObjects:
+        - {fileID: 1459739634702834, guid: 2903e8476ef22d44992b42955dd2dc2f, type: 3}
+        isRandom: 1
+      deltaSpeeds: []
+      aimshoot: []
+      randmOffset:
+        startPosition: {x: 0, y: 0}
+      EXDanmu: []

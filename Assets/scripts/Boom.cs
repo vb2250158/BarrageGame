@@ -51,11 +51,11 @@ public class Boom : MonoBehaviour
     /// </summary>
     /// <param name="_aimshoots"></param>
     /// <returns></returns>
-    public Boom setAimshoot(Aimshoot[] _aimshoots)
+    public Boom setAimshoot(List<Aimshoot> _aimshoots)
     {
-        this.aimshoots = new Aimshoot[_aimshoots.Length];
+        this.aimshoots = new Aimshoot[_aimshoots.Count];
 
-        for (int i = 0; i < _aimshoots.Length; i++)
+        for (int i = 0; i < _aimshoots.Count; i++)
         {
             aimshoots[i] = new Aimshoot(_aimshoots[i].startTime, _aimshoots[i].type);
         }
@@ -63,7 +63,7 @@ public class Boom : MonoBehaviour
     }
 
 
-    public Boom addDanmuShoot(DanmuShoot[] _danmuShoots)
+    public Boom addDanmuShoot(List<DanmuShoot> _danmuShoots)
     {
         this.danmuShoots.danmus = _danmuShoots;
         return this;
@@ -74,10 +74,10 @@ public class Boom : MonoBehaviour
     /// </summary>
     /// <param name="_deltaSpeeds"></param>
     /// <returns></returns>
-    public Boom setDeltaSpeed(DeltaSpeed[] _deltaSpeeds)
+    public Boom setDeltaSpeed(List<DeltaSpeed> _deltaSpeeds)
     {
-        this.deltaSpeeds = new DeltaSpeed[_deltaSpeeds.Length];
-        for (int i = 0; i < _deltaSpeeds.Length; i++)
+        this.deltaSpeeds = new DeltaSpeed[_deltaSpeeds.Count];
+        for (int i = 0; i < _deltaSpeeds.Count; i++)
         {
             deltaSpeeds[i] = new DeltaSpeed(_deltaSpeeds[i].startDeltaTime, _deltaSpeeds[i].speed, _deltaSpeeds[i].addSpeed);
         }

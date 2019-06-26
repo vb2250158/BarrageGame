@@ -71,7 +71,15 @@
     <Compile Include="Assets\scripts\Boom.cs" />
     <Compile Include="Assets\scripts\CG.cs" />
     <Compile Include="Assets\scripts\control.cs" />
+    <Compile Include="Assets\scripts\Data\DanmuShootDataConfig.cs" />
     <Compile Include="Assets\scripts\game.cs" />
+    <Compile Include="Assets\scripts\GameController.cs" />
+    <Compile Include="Assets\scripts\GameUtils.cs" />
+    <Compile Include="Assets\scripts\Playable\Clip\BaseDanmuClip.cs" />
+    <Compile Include="Assets\scripts\Playable\Clip\DanmuShootClip.cs" />
+    <Compile Include="Assets\scripts\Playable\DanmuBehaviour.cs" />
+    <Compile Include="Assets\scripts\Playable\DanmuPlayableDirector.cs" />
+    <Compile Include="Assets\scripts\Playable\DanmuTrack.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\Points.cs" />
     <Compile Include="Assets\scripts\Quad.cs" />

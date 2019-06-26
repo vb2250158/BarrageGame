@@ -76,7 +76,7 @@ public class Ranking : MonoBehaviour
 
 
         //设置玩家当前排名的文本
-        pt.text = ((int)Points.time).ToString();
+        pt.text = ((int)Points.Time).ToString();
 
         RefreshRanking();
 
@@ -129,7 +129,7 @@ public class Ranking : MonoBehaviour
         {
 
             //查看分数是否低于
-            if ((int)Points.time > ss[playerRanking.ps.number - 2].ps.value)
+            if ((int)Points.Time > ss[playerRanking.ps.number - 2].ps.value)
             {
                 Moveing = true;
                 //位置下降消失
@@ -149,7 +149,7 @@ public class Ranking : MonoBehaviour
         else if (playerRanking.ps.number == MaxDisplayNumber + 1)
         {
             //查看分数是否低于
-            if ((int)Points.time > ss[playerRanking.ps.number - 2].ps.value)
+            if ((int)Points.Time > ss[playerRanking.ps.number - 2].ps.value)
             {
                 Debug.Log("对象转化");
                 for (int i = 0; i < Rank; i++)
@@ -170,11 +170,11 @@ public class Ranking : MonoBehaviour
                 ScoreShowNumberRefresh(ss[playerRanking.ps.number - 1]);
             }
         }
-        else if (playerRanking.ps.number>1)
+        else if (playerRanking.ps.number > 1)
         {
             Debug.Log("排名检测中:" + (playerRanking.ps.number) + ":" + ss[playerRanking.ps.number - 2].ps.number);
             //查看分数是否低于
-            if ((int)Points.time > ss[playerRanking.ps.number - 2].ps.value)
+            if ((int)Points.Time > ss[playerRanking.ps.number - 2].ps.value)
             {
                 Moveing = true;
                 //位置上升
@@ -189,11 +189,11 @@ public class Ranking : MonoBehaviour
                 if (playerRanking.ps.number == 3)
                 {
                     Debug.Log("我到前三名啦！");
-                    ss[playerRanking.ps.number - 1].GetComponent<Image>().color = ss[playerRanking.ps.number ].GetComponent<Image>().color;
+                    ss[playerRanking.ps.number - 1].GetComponent<Image>().color = ss[playerRanking.ps.number].GetComponent<Image>().color;
                 }
             }
         }
-       
+
 
 
     }
@@ -262,7 +262,7 @@ public class Ranking : MonoBehaviour
     {
         playerRanking = Instantiate(te, transform).GetComponent<ScoreShow>();
         playerRanking
-        .SetPs(new PlayerScore("", (int)Points.time, ss.Length + 1))
+        .SetPs(new PlayerScore("", (int)Points.Time, ss.Length + 1))
         .transform.localPosition = Vector3.down * interval * ss.Length;
         pt = playerRanking.transform.Find("Text").GetComponent<Text>();
         pt.fontSize += 20;
@@ -281,30 +281,34 @@ public class Ranking : MonoBehaviour
     /// </summary>
     public void load(string levename)
     {
-        string[] data=null;
+        List<string> data = new List<string>();
+        string path = Application.streamingAssetsPath + "/" + levename + ".fds";
         try
         {
-            data = File.ReadAllLines("./"+ levename + ".fds");
+
+            string[] loadData = File.ReadAllLines(path);
+            foreach (var item in loadData)
+            {
+                data.Add(item);
+            }
         }
         catch (System.Exception)
         {
-            Debug.LogError("找不到排名数据");
+            Debug.Log("创建排名数据");
+            System.IO.Directory.CreateDirectory(Application.streamingAssetsPath);
+            File.Create(path);
         }
-        
+        Debug.Log("读取排行榜:" + path);
 
-        for (int i = 0; i < data.Length; i++)
+        for (int i = 0; i < data.Count; i++)
         {
             if (data[i].Equals(""))
             {
                 continue;
             }
             Debug.Log(Instantiate(te, transform).GetComponent<ScoreShow>().SetPs(JsonUtility.FromJson<PlayerScore>(data[i])));
-           
         }
     }
-
-
-
 
     /// <summary>
     /// 排名调整
@@ -351,7 +355,7 @@ public class Ranking : MonoBehaviour
             //排名数值实例化
             ScoreShowNumberInstantiate(item);
             //评级实例化
-            sr.displayRank(item.ps.value,item.transform.Find("Rank"));
+            sr.displayRank(item.ps.value, item.transform.Find("Rank"));
         }
 
     }
@@ -376,7 +380,7 @@ public class Ranking : MonoBehaviour
             //实例化数值
             Instantiate(im, s.getNumber_C())
                     .GetComponent<Image>().sprite = nmuberType[n];
-            
+
         }
     }
 

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// code by 可爱的小陶
+/// </summary>
 public class Points : MonoBehaviour
 {
 
-    public static float time;
+    public static float Time;
     public Sprite[] sp;
-    public BarrageLauncher gp;
     public GameObject pj;
     private GameObject point1a;
     private GameObject point2a;
@@ -28,7 +31,7 @@ public class Points : MonoBehaviour
     // Use this for initialization
     void Start()
     {         //11743
-        time = 0;
+        Time = 0;
         point1a = GameObject.Find("1");
         point2a = GameObject.Find("10");
         point3a = GameObject.Find("100");
@@ -48,7 +51,7 @@ public class Points : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player == null || time >= totalTime)
+        if (player == null || Time >= totalTime)
         {
             if (!end)
             {
@@ -62,14 +65,10 @@ public class Points : MonoBehaviour
         }
         else
         {
-            if (gp.timed >= totalTime)
-            {
-                return;
-            }
-            time = gp.timed;
-            time = time * 100;
+          
+            Time = Time * 100;
 
-            float a = time;
+            float a = Time;
             float a5 = a / 10000;
             float a4 = (a % 10000) / 1000;
             float a3 = (a % 1000) / 100;

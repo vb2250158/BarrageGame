@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
     }
 
 
-
+    public System.Action onHit;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        Destroy(this.gameObject);
+        onHit();
     }
 
 }

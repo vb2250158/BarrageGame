@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22acd422b70cab547aa18edf5e9fedca, type: 3}
+  m_Name: out_left_danmu
+  m_EditorClassIdentifier: 
+  danmuShoots:
+  - startTime: 128.1
+    shootTime: 5
+    liveTime: 20
+    danmuGo: {x: 5, y: 5}
+    danmuFrequency: 1
+    launchNumber:
+      number: 1
+      deviation: 0
+      timedelta: 0
+    danmuPreform:
+      danmuObjects:
+      - {fileID: 1650622349283922, guid: 3a4b99a665da99a4083efb4bb61c39b1, type: 3}
+      isRandom: 1
+    deltaSpeeds:
+    - startDeltaTime: 0
+      speed: {x: 0, y: 0}
+      addSpeed: {x: 0, y: -0.03}
+    aimshoot: []
+    randmOffset:
+      startPosition: {x: 0, y: 0}
+    EXDanmu:
+    - startTime: 1
+      shootTime: 6
+      liveTime: 9
+      danmuGo: {x: 5, y: 0}
+      danmuFrequency: 2
+      launchNumber:
+        number: 1
+        deviation: 0
+        timedelta: 0
+      danmuPreform:
+        danmuObjects:
+        - {fileID: 1459739634702834, guid: 2903e8476ef22d44992b42955dd2dc2f, type: 3}
+        isRandom: 0
+      deltaSpeeds: []
+      aimshoot:
+      - startTime: 0
+        type: 0
+      randmOffset:
+        startPosition: {x: 0, y: 0}
+      EXDanmu: []
+    - startTime: 1
+      shootTime: 6
+      liveTime: 15
+      danmuGo: {x: 40, y: 0}
+      danmuFrequency: 0.5
+      launchNumber:
+        number: 1
+        deviation: 45
+        timedelta: 1
+      danmuPreform:
+        danmuObjects:
+        - {fileID: 1459739634702834, guid: 2903e8476ef22d44992b42955dd2dc2f, type: 3}
+        isRandom: 1
+      deltaSpeeds:
+      - startDeltaTime: 0.2
+        speed: {x: 0, y: 0.0001}
+        addSpeed: {x: 0, y: 0}
+      - startDeltaTime: 2
+        speed: {x: 0, y: -5}
+        addSpeed: {x: 0, y: 0}
+      aimshoot:
+      - startTime: 5
+        type: 0
+      randmOffset:
+        startPosition: {x: 0, y: 0}
+      EXDanmu: []
+  - startTime: 116.9
+    shootTime: 0.8
+    liveTime: 9
+    danmuGo: {x: 5, y: -1}
+    danmuFrequency: 0.1
+    launchNumber:
+      number: 6
+      deviation: 0
+      timedelta: 0
+    danmuPreform:
+      danmuObjects:
+      - {fileID: 1459739634702834, guid: 7003aad54e8756b4c984bfadb87c7d2b, type: 3}
+      - {fileID: 1459739634702834, guid: b926539b338cf2f479abae2551d510b7, type: 3}
+      - {fileID: 1459739634702834, guid: 8e4a63a4634a7304683c094fd5235d8e, type: 3}
+      isRandom: 1
+    deltaSpeeds:
+    - startDeltaTime: 0
+      speed: {x: 0, y: 0}
+      addSpeed: {x: 0, y: -0.03}
+    aimshoot: []
+    randmOffset:
+      startPosition: {x: 2, y: 30}
+    EXDanmu: []
+  - startTime: 123.5
+    shootTime: 0.8
+    liveTime: 9
+    danmuGo: {x: 5, y: -1}
+    danmuFrequency: 0.1
+    launchNumber:
+      number: 6
+      deviation: 0
+      timedelta: 0
+    danmuPreform:
+      danmuObjects:
+      - {fileID: 1459739634702834, guid: 7003aad54e8756b4c984bfadb87c7d2b, type: 3}
+      - {fileID: 1459739634702834, guid: b926539b338cf2f479abae2551d510b7, type: 3}
+      - {fileID: 1459739634702834, guid: 8e4a63a4634a7304683c094fd5235d8e, type: 3}
+      isRandom: 1
+    deltaSpeeds:
+    - startDeltaTime: 0
+      speed: {x: 0, y: 0}
+      addSpeed: {x: 0, y: -0.03}
+    aimshoot: []
+    randmOffset:
+      startPosition: {x: 2, y: 30}
+    EXDanmu: []

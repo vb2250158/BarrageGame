@@ -54,7 +54,7 @@ public class ScoreRecord : MonoBehaviour {
     /// </summary>
     public void SetScoreName() {
         sc.name = transform.Find("InputField").GetComponent<InputField>().text;
-        sc.value = (int)(Points.time);
+        sc.value = (int)(Points.Time);
         sc.number = Ranking.playerRanking.ps.number;
     }
     /// <summary>
@@ -82,7 +82,7 @@ public class ScoreRecord : MonoBehaviour {
     }
     public void end()
     {
-        ShowNumber(value.transform, (int)(Points.time));
+        ShowNumber(value.transform, (int)(Points.Time));
         ShowNumber(Nuber.transform, Ranking.playerRanking.ps.number);
         displayRank();
     }
@@ -94,7 +94,7 @@ public class ScoreRecord : MonoBehaviour {
     {
         foreach (var item in rt)
         {
-            if (item.value.x  <= (int)(Points.time) && (int)(Points.time) < item.value.y)
+            if (item.value.x  <= (int)(Points.Time) && (int)(Points.Time) < item.value.y)
             {
                 Instantiate(item.gj, transform.Find("Grade")).transform.localPosition = Vector3.zero;
             }

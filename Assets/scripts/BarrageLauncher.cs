@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 /// <summary>
 /// 弹幕发射基本参数
 /// </summary>
@@ -26,40 +30,47 @@ public class DanmuShoot
     /// <summary>
     /// 每轮弹幕发射频率
     /// </summary>
+    [Tooltip("每轮弹幕发射频率")]
     public float danmuFrequency;
     /// <summary>
     /// 弹幕发射数量设置
     /// </summary>
+    [Tooltip("弹幕发射数量设置")]
     public LaunchNumber launchNumber;
     /// <summary>
     /// 弹幕预制
     /// </summary>
+    [Tooltip("弹幕预制")]
     public DanmuPreform danmuPreform;
     /// <summary>
     /// 速度变化 
     /// </summary>
-    public DeltaSpeed[] deltaSpeeds;
+    [Tooltip("速度变化")]
+    public List<DeltaSpeed> deltaSpeeds;
     /// <summary>
     /// 追击开始时间
     /// </summary>
-    public Aimshoot[] aimshoot;
+    [Tooltip("追击开始时间")]
+    public List<Aimshoot> aimshoot;
     /// <summary>
     /// 随机偏差值
     /// </summary>
+    [Tooltip("随机偏差值")]
     public RandmOffset randmOffset;
 
     /// <summary>
     /// 超级弹幕
     /// </summary>
-    public DanmuShoot[] EXDanmu;
+    public List<DanmuShoot> EXDanmu;
 }
+
 [System.Serializable]
 public class DanmuPreform
 {
     /// <summary>
     /// 随机的预制体
     /// </summary>
-    public GameObject[] danmuObjects;
+    public List<GameObject> danmuObjects;
     /// <summary>
     /// 是否随机生成
     /// </summary>
@@ -153,10 +164,7 @@ public enum AimshootType
 
 public class BarrageLauncher : MonoBehaviour
 {
-    public DanmuShoot[] danmus;
-
-
-
+    public List<DanmuShoot> danmus;
 
     public float timed { get; set; }
 
@@ -205,31 +213,14 @@ public class BarrageLauncher : MonoBehaviour
             yield return null;
         }
 
-
-
-
-
-
         //整个弹幕发射器的生命周期
         for (float live = 0; live < _danmuShoot.shootTime; live += _danmuShoot.danmuFrequency)
         {
-
-
-
             ShootSystem(_danmuShoot);
-
-
-
             //ShootSystem(_danmuShoot);
-
-
-
-
             yield return new WaitForSeconds(_danmuShoot.danmuFrequency);
 
         }
-
-
     }
 
 
@@ -244,16 +235,16 @@ public class BarrageLauncher : MonoBehaviour
         for (int i = 0; i < _danmuShoot.launchNumber.number; i++)
         {
             GameObject danmuObject;
-            GameObject[] danmuObjects = _danmuShoot.danmuPreform.danmuObjects;
+            List<GameObject> danmuObjects = _danmuShoot.danmuPreform.danmuObjects;
             //是否随机构成
             if (_danmuShoot.danmuPreform.isRandom)
             {
-                int n = Random.Range(0, danmuObjects.Length);
+                int n = Random.Range(0, danmuObjects.Count);
                 danmuObject = Instantiate(danmuObjects[n], transform);
             }
             else
             {
-                danmuObject = Instantiate(danmuObjects[i % danmuObjects.Length], transform);
+                danmuObject = Instantiate(danmuObjects[i % danmuObjects.Count], transform);
             }
 
             if (_danmuShoot.launchNumber.timedelta)
@@ -330,10 +321,6 @@ public class BarrageLauncher : MonoBehaviour
         return new Vector2(v2.x * cos + v2.y * sin, v2.x * -sin + v2.y * cos);
     }
 
-
-
-
-
     /// <summary>
     /// 把Y轴长度调给X轴
     /// </summary>
@@ -344,5 +331,20 @@ public class BarrageLauncher : MonoBehaviour
     {
         return new Vector2(v2.x + Deviation, v2.y - Deviation);
     }
+
+#if UNITY_EDITOR
+    [ContextMenu("CrareConfig")]
+    public void CrareConfig()
+    {
+        string levelName = UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene().name;
+        DanmuShootDataConfig danmuShootDataConfig = ScriptableObject.CreateInstance<DanmuShootDataConfig>();
+        string upPath = "Assets/Resources/LevelData/" + levelName + "/";
+        System.IO.Directory.CreateDirectory(upPath);
+        string path = upPath + gameObject.name + ".asset";
+        Debug.Log("写入到:" + path);
+        danmuShootDataConfig.danmuShoots = this.danmus;
+        AssetDatabase.CreateAsset(danmuShootDataConfig, path);
+    }
+#endif
 
 }
